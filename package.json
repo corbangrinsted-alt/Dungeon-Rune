@@ -1,0 +1,47 @@
+{
+  "name": "dungeon-rune",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Dungeon Rune desktop game",
+  "main": "main.cjs",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "npm run build && electron .",
+    "package": "npm run build && electron-builder"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-react": "^7.29.0",
+    "electron": "^36.0.0",
+    "electron-builder": "^26.0.12",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "scheduler": "^0.23.2"
+  },
+  "build": {
+    "appId": "com.dungeonrune.game",
+    "productName": "Dungeon Rune",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.cjs",
+      "dist/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": ["nsis"]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "mac": {
+      "target": ["dmg"]
+    },
+    "linux": {
+      "target": ["AppImage"]
+    },
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
+  }
+}
