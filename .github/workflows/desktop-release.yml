@@ -43,6 +43,19 @@ jobs:
         with:
           path: release-files
           merge-multiple: true
-      - env:
+      - name: Publish release
+        shell: bash
+        env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" release-files/* --generate-notes --verify-tag
+        run: |
+          set -euo pipefail
+          mapfile -d '' assets < <(find release-files -maxdepth 1 -type f \( -name '*.exe' ! -name '*.__uninstaller.exe' -o -name '*.dmg' -o -name '*.AppImage' \) -print0)
+          if [ "${#assets[@]}" -eq 0 ]; then
+            echo "No release installers found" >&2
+            exit 1
+          fi
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" "${assets[@]}" --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" "${assets[@]}" --generate-notes --verify-tag
+          fi
