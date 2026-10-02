@@ -15,7 +15,7 @@ const CLASSES = {
     spells: ["basic_bolt", "fireball", "thunderwave", "dash_back", "sleep"],
     playable: true,
   },
-  /*soldier: {
+  soldier: {
     id: "soldier",
     name: "Soldier",
     tag: "Vanguard · Guard · Heavy",
@@ -24,7 +24,7 @@ const CLASSES = {
     stats: { hp: 6, damage: 9, speed: 3, magic: 4 },
     spells: ["basic_slash", "shield_bash", "seismic_slam", "bulwark", "charge"],
     playable: true,
-  },*/
+  },
   assassin: {
     id: "assassin",
     name: "Assassin",
@@ -35,7 +35,7 @@ const CLASSES = {
     spells: ["basic_dagger", "shadowstep", "fan_knives", "smoke_bomb", "execution"],
     playable: true,
   },
-  raff: {
+  /*raff: {
     id: "raff",
     name: "Raff",
     tag: "Fast · Stealth · Fragile",
@@ -44,7 +44,7 @@ const CLASSES = {
     stats: { hp: 1000, damage: 30, speed: 12, magic: 2000 },
     spells: ["basic_dagger", "shadowstep", "fan_knives", "smoke_bomb", "execution"],
     playable: true,
-  },
+  },*/
 };
 
 const SPELLS = {
