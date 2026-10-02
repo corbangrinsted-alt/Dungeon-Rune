@@ -1,6 +1,6 @@
 {
   "name": "dungeon-rune",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Dungeon Rune desktop game",
   "main": "main.cjs",
